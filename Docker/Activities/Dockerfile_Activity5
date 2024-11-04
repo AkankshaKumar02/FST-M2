@@ -1,0 +1,22 @@
+FROM docker.io/node:18-alpine
+#  "node:18-alpine"--> alpine linux env with node istalled
+
+WORKDIR /usr/app
+
+#copy the package.json into the containner
+COPY ./package.json ./
+# here destination location:  is container path
+# ./package.json  -->host --> transfering just packahe file , where as ./ --> every file
+# ./ - /usr/app this can also be used
+
+RUN npm install
+
+#copy the rest of the files into the containner
+COPY  ./ ./
+
+CMD [ "npm","start" ]
+# sequence: cmd ->options->argument
+# here npm is command & start is argument
+
+
+#host:container
