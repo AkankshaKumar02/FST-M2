@@ -1,0 +1,9 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Create User
+      user:
+        name: testuser1
+        groups: wheel
+        append: true
