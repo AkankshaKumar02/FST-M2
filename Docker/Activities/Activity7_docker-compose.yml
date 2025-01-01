@@ -1,0 +1,12 @@
+services:
+#redis database
+    redis-server:
+        image: redis
+        command: ["redis-server", "--protected-mode", "no"]
+  #Node application
+    node-app:
+        build: ./
+        #image build by above command will be given name "docker.io/02akanksha/visits" using below line
+        image: docker.io/02akanksha/visits
+        ports:
+            - "8081:8081"
